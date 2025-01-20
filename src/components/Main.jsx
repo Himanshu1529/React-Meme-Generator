@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function Main(props) {
   const [meme, setMeme] = useState({
-    topText: "One does Simply",
-    bottomText: "Another does not",
+    topText: "Hello Cutie",
+    bottomText: "Ky krr rhi ho ?",
     imageUrl:
       "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
   });
@@ -32,6 +32,26 @@ function Main(props) {
     }));
   }
 
+  function handleDownload() {
+    const link = document.createElement("a");
+    link.href = meme.imageUrl;
+    link.download = "meme.png"; // you can set any name here
+    link.click();
+  }
+
+  function handleShare() {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Check out this meme!",
+          url: meme.imageUrl,
+        })
+        .catch((error) => console.log("Error sharing:", error));
+    } else {
+      alert("Share not supported in this browser.");
+    }
+  }
+
   return (
     <main>
       <div className="form">
@@ -58,10 +78,16 @@ function Main(props) {
         </label>
         <button onClick={getRandomMeme}>Get a new meme image 🖼</button>
       </div>
+
       <div className="meme">
-        <img src={meme.imageUrl} />
+        <img src={meme.imageUrl} alt="Generated meme" />
         <span className="top">{meme.topText}</span>
         <span className="bottom">{meme.bottomText}</span>
+      </div>
+
+      <div className="actions">
+        <button onClick={handleDownload}>Download </button>
+        <button onClick={handleShare}>Share </button>
       </div>
     </main>
   );
