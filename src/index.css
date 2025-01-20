@@ -102,3 +102,16 @@ main {
 .top {
   top: 0;
 }
+.actions {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  padding: 10px 15px;
+}
+
+.actions > button {
+  background-color: #a626d3;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: 40%;
+}
