@@ -11,6 +11,9 @@ A simple React app that allows users to generate memes by adding custom text to 
 - A button allows users to generate a new random meme image.
 - The meme updates dynamically when the text or image changes.
 
+## Screenshot
+
+![App Screenshot](https://github.com/Himanshu1529/React-Meme-Generator/blob/main/meme.png)
 
 ## Installation
 
